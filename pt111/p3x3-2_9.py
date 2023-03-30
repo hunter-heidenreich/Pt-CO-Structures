@@ -33,7 +33,7 @@ for site1, site2 in product(*(sites, sites)):
     slab = fcc111('Pt', size=(3, 3, 6), a=pt_a, vacuum=vacuum, periodic=True)
 
     add_adsorbate(slab, co, d_ads, position=site1, offset=0, mol_index=c_index)
-    add_adsorbate(slab, co, d_ads, position=site2, offset=1 if site1 == site2 else (0, 1), mol_index=c_index)
+    add_adsorbate(slab, co, d_ads, position=site2, offset=1 if site1 == site2 else (1, 0), mol_index=c_index)
 
     constraint = FixAtoms(indices=[atom.index for atom in slab if atom.position[-1] < 13.0])
     slab.set_constraint(constraint)
